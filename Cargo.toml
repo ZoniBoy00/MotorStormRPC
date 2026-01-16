@@ -29,3 +29,11 @@ windows = { version = "0.52", features = [
 
 [build-dependencies]
 winres = "0.1"
+
+[profile.release]
+opt-level = "z"      # Optimize for size
+lto = true           # Enable Link Time Optimization
+codegen-units = 1    # Better optimization (slower compile, smaller binary)
+strip = true         # Strip symbols from binary
+panic = "abort"      # Smaller binary, no unwinding
+
